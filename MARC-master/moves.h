@@ -61,7 +61,7 @@ void updateLocalisation(t_localisation *, t_move);
 char* draw_move(char *_moves);
 
 /**
- * @brief function to set the moves of the robot
+ * @brief function get the moves available in the phase
  * @return the set of moves
  */
 char* move_set(char *_moves);
