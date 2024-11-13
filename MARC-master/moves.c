@@ -1,7 +1,8 @@
 //
 // Created by flasque on 19/10/2024.
 //
-
+#include <stdlib.h>
+#include <string.h>
 #include "moves.h"
 
 /* prototypes of local functions */
@@ -152,4 +153,23 @@ void updateLocalisation(t_localisation *p_loc, t_move m)
 {
     *p_loc = move(*p_loc, m);
     return;
+}
+
+char* draw_move(char *_moves)
+{
+    int i = rand() % 7;
+    while (nb_moves[i] == 0)
+    {
+        i = rand() % 7;
+    }
+    nb_moves[i]--;
+    return &_moves[i];
+}
+
+char* move_set(char *_moves){
+    char static move_Set[9][8];
+    for(int i=0; i<10; i++){
+        strcpy(move_Set[i],draw_move(_moves));
+    }
+    return &move_Set;
 }

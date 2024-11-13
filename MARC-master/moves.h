@@ -11,6 +11,10 @@
  * @brief Array of strings for the possible moves of the robot
  */
 static char _moves[8][8] = {"F 10m", "F 20m", "F 30m", "B 10m", "T left", "T right", "U-turn"};
+/**
+ * @brief Array of integers associated to the available moves of the robot (with the same indices as _moves)
+ */
+static int nb_moves[8] = {22,15,7,7,21,21, 7};
 
 /**
  * @brief Enum for the possible moves of the robot
@@ -49,5 +53,17 @@ t_localisation move(t_localisation, t_move);
  * @return none
  */
 void updateLocalisation(t_localisation *, t_move);
+
+/**
+ * @brief function to a random move and decrement it's availability
+ * @return a random move
+ */
+char* draw_move(char *_moves);
+
+/**
+ * @brief function to set the moves of the robot
+ * @return the set of moves
+ */
+char* move_set(char *_moves);
 
 #endif //UNTITLED1_MOVES_H

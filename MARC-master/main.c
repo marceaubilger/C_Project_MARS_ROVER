@@ -2,7 +2,7 @@
 #include "map.h"
 
 int main() {
-    t_map map = createMapFromFile("..\\maps\\example1.map");
+    t_map map = createMapFromFile("..\\maps\\example1.map")  ;
     printf("Map created with dimensions %d x %d\n", map.y_max, map.x_max);
     for (int i = 0; i < map.y_max; i++)
     {
@@ -10,7 +10,7 @@ int main() {
         {
             printf("%d ", map.soils[i][j]);
         }
-        printf("\n");
+        printf("\n\n");
     }
     // printf the costs, aligned left 5 digits
     for (int i = 0; i < map.y_max; i++)
@@ -19,7 +19,7 @@ int main() {
         {
             printf("%-5d ", map.costs[i][j]);
         }
-        printf("\n");
+        printf("\n\n");
     }
     displayMap(map);
     return 0;
