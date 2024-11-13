@@ -167,7 +167,7 @@ char* draw_move(char *_moves)
 }
 
 char* move_set(char *_moves){
-    char static move_Set[9][8];
+    char static move_Set[8][9];
     for(int i=0; i<10; i++){
         strcpy(move_Set[i],draw_move(_moves));
     }
