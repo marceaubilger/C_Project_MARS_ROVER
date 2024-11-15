@@ -207,6 +207,7 @@ t_map createMapFromFile(char *filename)
     char buffer[100];   // buffer for reading the file line by line
 
     FILE *file = fopen(filename,"rt");
+
     if (file == NULL)
     {
         fprintf(stderr, "Error: cannot open file %s\n", filename);
