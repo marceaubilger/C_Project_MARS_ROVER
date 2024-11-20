@@ -2,9 +2,11 @@
 #include "map.h"
 #include "N-ary-tree.h"
 #include "node.h"
+#include "time.h"
 #include "moves.h"
 
 int main() {
+    srand(time(NULL));
     /*
     t_map map = createMapFromFile("maps/example1.map");
     printf("Map created with dimensions %d x %d\n", map.y_max, map.x_max);
@@ -28,34 +30,30 @@ int main() {
     displayMap(map);
     return 0;
     */
+   t_move *random_moves=getRandomMoves(9);
    p_node thenode = createNode(NULL,0);
    int countnode=1;
-   thenode=createNaryTree(thenode,9,&countnode,NULL);
-   printf(" %d \n",countnode);
+    for(int i=0;i<9;i++){
+        thenode->mouv_for_sons[i]=random_moves[i];
+        printf("%d  ",random_moves[i]);
+    }
+    
+    thenode=createNaryTree(thenode,9,&countnode,NULL);
+    //printf(" %d \n",countnode);
+    int count_=0;
+    traversePreOrder(thenode,&count_);
+    //printf("    \n%d\n",count_);
 
     printf("%p\n",thenode->sons[0]->father);
     for(int i=0;i<9;i++){
-        //printf("    %p  pos: %d\n",thenode->sons[i],thenode->sons[i]->pos_in_children);
-        //printf("%s\n",_moves[i]);
-   }
-
-    int N=12;
-    int nbmoves[]={22,15,7,7,21,21,7};
-    int total_moves=100;
-    t_move *moves = (t_move *)malloc(N * sizeof(t_move));
-    for (int i = 0; i < N; i++)
-    {
-        int r = rand() % total_moves;
-        int type=0;
-        while (r >= nbmoves[type])
-        {
-            r -= nbmoves[type];
-            type++;
+        for(int j=0;j<8;j++){
+            printf("%d   ",thenode->sons[i]->mouv_for_sons[j]);
         }
-        nbmoves[type]--;
-        total_moves--;
-        moves[i] = (t_move )type;
+        printf("        %d",thenode->sons[i]->move_to_get_here);
+        printf("\n");
+
+        
     }
-    printf("%d",moves);
-  return 0;
+
+    return 0;
 }
