@@ -12,6 +12,7 @@ p_node createNode(t_node *father,int pos)
 
     if(nouv->father==NULL)nouv->height=0;
     else nouv->height = nouv->father->height+1;
+    nouv->mouv_for_sons=(int*)malloc((9-(nouv->height))*sizeof(int));
     
     return nouv;
 }

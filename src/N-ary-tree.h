@@ -34,4 +34,8 @@ void traversePreOrder(p_node node,int *count_);
  * @return : void
  */
 void getListOfMovesFromFather(p_node node);
+
+
+void removeNegatives(int* list, int size);
+
 #endif //UNTITLED_N-ARY-TREE_H

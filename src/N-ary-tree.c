@@ -32,7 +32,9 @@ void traversePreOrder(p_node node,int *count_) {
     (*count_)++;
 
     getListOfMovesFromFather(node);
-
+    if(node->father!=NULL){
+        node->l=move(node->father->l,node->move_to_get_here);
+    }
     for (int i = 0; i < 9-(node->height); i++) { 
         if (node->sons != NULL && node->sons[i] != NULL) {
             traversePreOrder(node->sons[i],count_);
@@ -51,9 +53,12 @@ void getListOfMovesFromFather(p_node node){
                 node->mouv_for_sons[i]=node->father->mouv_for_sons[i];
             }
             else{
+                node->mouv_for_sons[i]=-1;
                 node->move_to_get_here= node->father->mouv_for_sons[i];
             }
         }
+        removeNegatives(node->mouv_for_sons,size);
+
     }
     else{
         getListOfMovesFromFather(node->father);
@@ -61,3 +66,19 @@ void getListOfMovesFromFather(p_node node){
 
 }
 
+
+
+
+void removeNegatives(int* list, int size) {
+    int i = 0, j = 0;
+
+    // Iterate over the list
+    while (i < size) {
+        // If the current value is not -1, copy it to the new position
+        if (list[i] != -1) {
+            list[j] = list[i];
+            j++;
+        }
+        i++;
+    }
+}

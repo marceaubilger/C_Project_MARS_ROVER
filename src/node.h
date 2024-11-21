@@ -6,10 +6,10 @@
 
 typedef struct s_node
 {
-    int value;
+    t_localisation l;
     struct s_node **sons;
     struct s_node *father;
-    int mouv_for_sons[9];
+    int *mouv_for_sons;
     int pos_in_children;
     int height;
     int move_to_get_here;

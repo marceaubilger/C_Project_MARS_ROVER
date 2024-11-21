@@ -4,6 +4,7 @@
 
 #include "loc.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 t_localisation loc_init(int x, int y, t_orientation ori)
 {
