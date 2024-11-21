@@ -27,5 +27,11 @@ p_node createNaryTree(p_node node,int NumOfSons,int *count_node,p_node father_no
 */
 void traversePreOrder(p_node node,int *count_);
 
+
+/**
+ * @brief: fuunction to get the array of move available and the move used to get to the node
+ * @param node: the node on which the move is used
+ * @return : void
+ */
 void getListOfMovesFromFather(p_node node);
 #endif //UNTITLED_N-ARY-TREE_H

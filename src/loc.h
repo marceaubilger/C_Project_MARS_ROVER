@@ -80,4 +80,7 @@ t_position UP(t_position);
  */
 t_position DOWN(t_position);
 
+
+t_position getRandomStartingPoint(int y_max, int x_max);
+
 #endif //UNTITLED1_LOC_H

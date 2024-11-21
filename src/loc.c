@@ -3,6 +3,7 @@
 //
 
 #include "loc.h"
+#include <stdlib.h>
 
 t_localisation loc_init(int x, int y, t_orientation ori)
 {
@@ -50,3 +51,14 @@ t_position DOWN(t_position pos)
     return new_pos;
 }
 
+t_position getRandomStartingPoint(int y_max, int x_max){
+    int pos_x, pos_y;
+    t_position popo;
+
+    pos_x=rand()%x_max;
+    pos_y=rand()%y_max;
+    popo.x=pos_x;
+    popo.y=pos_y;
+
+    return popo;
+}

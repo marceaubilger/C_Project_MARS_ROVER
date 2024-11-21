@@ -17,6 +17,13 @@ add_executable(main main.c ${SRC_FILES})
 
 target_include_directories(main PRIVATE src/)
 
+add_custom_command(
+    TARGET main POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/maps ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/maps
+    COMMENT "Copying maps folder to output directory"
+)
+
 add_custom_target(main_exec
     DEPENDS main
     COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/./main
