@@ -13,9 +13,11 @@ file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
 file(GLOB SRC_FILES src/*.c)
 
-add_executable(main main.c ${SRC_FILES})
+add_executable(main ../main.c ${SRC_FILES}
+        ../src/path.c
+        ../src/node.c)
 
-target_include_directories(main PRIVATE src/)
+target_include_directories(main PRIVATE ../src)
 
 add_custom_target(main_exec
     DEPENDS main
