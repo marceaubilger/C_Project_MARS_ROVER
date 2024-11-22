@@ -5,6 +5,8 @@
 #ifndef UNTITLED1_MAP_H
 #define UNTITLED1_MAP_H
 
+#include "node.h"
+
 #define COST_UNDEF 65535
 /**
  * @brief Enum for the possible soils of the map
@@ -54,5 +56,8 @@ t_map createMapFromFile(char *);
  * @param map : the map to display
  */
 void displayMap(t_map);
+
+
+void valueOnMapAtCoo(t_map map,p_node node);
 
 #endif //UNTITLED1_MAP_H

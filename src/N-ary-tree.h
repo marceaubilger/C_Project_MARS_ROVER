@@ -2,6 +2,7 @@
 #ifndef UNTITLED_N_ARY_TREE_H
 #define UNTITLED_N_ARY_TREE_H
 #include "node.h"
+#include "map.h"
 
 typedef struct s_tree
 {
@@ -16,7 +17,7 @@ typedef struct s_tree
  * @param father_node : the address of the father of the sons created
  * @return : the root node
  */
-p_node createNaryTree(p_node node,int NumOfSons,int *count_node,p_node father_node);
+p_node createNaryTree(p_node node,int NumOfSons,int *count_node,p_node father_node,t_map map);
 
 
 /**
@@ -25,7 +26,7 @@ p_node createNaryTree(p_node node,int NumOfSons,int *count_node,p_node father_no
  *@param count : count to verify that the entire tree is visited, should be 18730
  *@return : void 
 */
-void traversePreOrder(p_node node,int *count_);
+void traversePreOrder(p_node node,int *count_,t_map map);
 
 
 /**
@@ -35,7 +36,7 @@ void traversePreOrder(p_node node,int *count_);
  */
 void getListOfMovesFromFather(p_node node);
 
+p_node gettingSmallestValue(p_node node,p_node min_val);
 
-void removeNegatives(int* list, int size);
 
 #endif //UNTITLED_N-ARY-TREE_H

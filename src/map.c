@@ -7,6 +7,7 @@
 #include <string.h>
 #include "map.h"
 #include "loc.h"
+#include "node.h"
 #include "queue.h"
 
 /* prototypes of local functions */
@@ -301,4 +302,22 @@ void displayMap(t_map map)
 
     }
     return;
+}
+
+void valueOnMapAtCoo(t_map map,p_node node){
+    //printf(" pos.x : %d   pos.y: %d   height: %d  pos: %d\n",node->l.pos.x,node->l.pos.y,node->height,node->pos_in_children);
+    int check=isValidLocalisation(node->l.pos, map.x_max, map.y_max);
+    if(check==0){
+        node->cost=10000;
+        node->isOutisde=2;
+        return;
+    }
+    if(node->father!=NULL && node->father->cost>=10000){
+        node->cost=node->father->cost;
+        node->isOutisde=1;
+        return;
+        }
+    node->cost=map.costs[node->l.pos.y][node->l.pos.x];
+    node->isOutisde=0;
+    //printf("cost: %d",node->cost);
 }
