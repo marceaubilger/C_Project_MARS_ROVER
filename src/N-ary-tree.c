@@ -34,10 +34,9 @@ void traversePreOrder(p_node node,int *count_,t_map map) {
     getListOfMovesFromFather(node);
 
     if(node->father!=NULL){
-        t_move moveee = (t_move)(node->move_to_get_here);
-        node->l=move(node->father->l,moveee);
+        performeMove(node,map);
     }
-    valueOnMapAtCoo(map,node);
+
     for (int i = 0; i < 9-(node->height); i++) { 
         if (node->sons != NULL && node->sons[i] != NULL) {
             traversePreOrder(node->sons[i],count_,map);
@@ -79,4 +78,30 @@ p_node gettingSmallestValue(p_node node, p_node min_val) {
         }
     }
     return min_val;
+}
+
+
+void performeMove(p_node node,t_map map){
+    t_move moveee;
+    if(node->move_to_get_here==1){
+        moveee=(t_move)(0);
+        node->l=move(node->father->l,moveee);
+        if(node->cost>=10000){return;}
+        node->l=move(node->l,moveee);
+    }
+
+    if(node->move_to_get_here==2){
+        moveee=(t_move)(0);
+        node->l=move(node->father->l,moveee);
+        if(node->cost>=10000){return;}
+        node->l=move(node->l,moveee);
+        if(node->cost>=10000){return;}
+        node->l=move(node->father->l,moveee);
+        if(node->cost>=10000){return;}
+        node->l=move(node->l,moveee);
+    }
+
+    moveee = (t_move)(node->move_to_get_here);
+    node->l=move(node->father->l,moveee);
+    valueOnMapAtCoo(map,node);
 }

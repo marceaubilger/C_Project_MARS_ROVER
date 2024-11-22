@@ -38,5 +38,6 @@ void getListOfMovesFromFather(p_node node);
 
 p_node gettingSmallestValue(p_node node,p_node min_val);
 
+void performeMove(p_node node,t_map map);
 
 #endif //UNTITLED_N-ARY-TREE_H

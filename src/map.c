@@ -305,14 +305,12 @@ void displayMap(t_map map)
 }
 
 void valueOnMapAtCoo(t_map map,p_node node){
-    //printf(" pos.x : %d   pos.y: %d   height: %d  pos: %d\n",node->l.pos.x,node->l.pos.y,node->height,node->pos_in_children);
-    int check=isValidLocalisation(node->l.pos, map.x_max, map.y_max);
-    if(check==0){
+    if(isValidLocalisation(node->l.pos, map.x_max, map.y_max)==0){
         node->cost=10000;
         node->isOutisde=2;
         return;
     }
-    if(node->father!=NULL && node->father->cost>=10000){
+    if(node->father!=NULL && node->father->cost>=1000){
         node->cost=node->father->cost;
         node->isOutisde=1;
         return;

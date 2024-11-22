@@ -43,7 +43,7 @@ int main() {
     thenode->l=loco;
    popo=getRandomStartingPoint(map.y_max,map.x_max);
    thenode->cost=map.costs[popo.y][popo.x];
-   printf("original y: %d   original x:%d   value at coo: %d\n",popo.y, popo.x, thenode->cost);
+   printf("original y: %d   original x:%d   value at coo: %d  ",popo.y, popo.x, thenode->cost);
 
     random_orientation=rand()%4;
     t_orientation orientation = (t_orientation)random_orientation;
@@ -53,37 +53,13 @@ int main() {
 
    
    t_move *random_moves=getRandomMoves(9);
-   printf("original moves: ");
     for(int i=0;i<9;i++){
         thenode->mouv_for_sons[i]=random_moves[i];
-        printf("%s   ",_moves[thenode->mouv_for_sons[i]]);
     }
-    printf("\n\n");
-
 
     thenode=createNaryTree(thenode,9,&countnode,NULL,map);
     traversePreOrder(thenode,&count_,map);
 
-    //printf("%d \n",countnode);
-    //printf("%d\n",count_);
-    //printf("%p\n",thenode->sons[0]->father);
-    
-    for(int i=0;i<8;i++){
-        printf("move used for son %d: %s   \n",i,_moves[thenode->sons[i]->move_to_get_here]);
-        printf("y:%d  x:%d   ori:%d    cost: %d",thenode->sons[i]->l.pos.y,thenode->sons[i]->l.pos.x,thenode->sons[i]->l.ori,thenode->sons[i]->cost);
-        printf("    outside: %d\n\n",thenode->sons[i]->isOutisde);
-    }
-
-    p_node tmp=thenode->sons[0];
-    printf("\n");
-    while(tmp->sons!=NULL){
-        printf("%s  ",_moves[tmp->move_to_get_here]);
-        printf("cost : %d   height : %d",tmp->cost,tmp->height);
-        printf("\n");
-        if(tmp->sons!=NULL){
-            tmp=tmp->sons[0];
-        }else{tmp=NULL;}
-    }
     
 
     p_node min_val = createNode(NULL,0);
@@ -94,10 +70,10 @@ int main() {
     p_node newtmp= min_val;
     int nmb_of_moves=newtmp->height;
     for(int i=0;i<nmb_of_moves;i++){
-        printf("%s  ",_moves[newtmp->move_to_get_here]);
-        if(tmp->father!=NULL){
+        printf("move: %s  cost: %d  height: %d  y: %d  x: %d  ori: %d\n",_moves[newtmp->move_to_get_here],newtmp->cost,newtmp->height,newtmp->l.pos.y,newtmp->l.pos.x,newtmp->l.ori);
+        if(newtmp->father!=NULL){
             newtmp=newtmp->father;
-        }else{tmp=NULL;}
+        }else{newtmp=NULL;}
     }
 
     return 0;
