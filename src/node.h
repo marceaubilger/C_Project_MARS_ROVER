@@ -17,4 +17,7 @@ typedef struct s_node
 }t_node, *p_node;
 
 p_node createNode(t_node *father,int pos);
+
+void free_node(p_node node);
+
 #endif //UNTITLED_NODE_H

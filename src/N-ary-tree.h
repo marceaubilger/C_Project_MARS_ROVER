@@ -27,5 +27,12 @@ p_node createNaryTree(p_node node,int NumOfSons,int *count_node,p_node father_no
 */
 void traversePreOrder(p_node node,int *count_);
 
+/*
+ * @brief Function to launch a recursive freeing of all nodes in the tree
+ * @param tree : pointer to a tree
+ * @return : void
+ */
+void free_tree(p_tree);
+
 void getListOfMovesFromFather(p_node node);
 #endif //UNTITLED_N-ARY-TREE_H

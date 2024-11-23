@@ -61,3 +61,8 @@ void getListOfMovesFromFather(p_node node){
 
 }
 
+void free_tree(tree){
+    p_node n=tree.root;
+    free_nodes(n);
+    return;
+}

@@ -15,3 +15,20 @@ p_node createNode(t_node *father,int pos)
     
     return nouv;
 }
+
+void free_node(p_node node){
+    if(node==NULL){
+        return;
+    }
+    if (node->sons==NULL){
+        free(node);
+        return;
+    }
+    for (int i=0; i<node->height;i++){
+        if(node->sons[i]!=NULL){
+            free_node(node->sons[i]);
+        }
+    }
+    free(node->sons);
+    free(node);
+}
