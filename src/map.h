@@ -57,7 +57,12 @@ t_map createMapFromFile(char *);
  */
 void displayMap(t_map);
 
-
+/**
+ * @brief take a position and a map and calculates the cost of the map at the position
+ * @param map the map used
+ * @param node the node used for the position
+ * @return void
+ */
 void valueOnMapAtCoo(t_map map,p_node node);
 
 #endif //UNTITLED1_MAP_H

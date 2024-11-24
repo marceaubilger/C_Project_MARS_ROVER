@@ -81,6 +81,12 @@ t_position UP(t_position);
 t_position DOWN(t_position);
 
 
+/**
+ * @brief calculates a random starting point for the original node
+ * @param y_max the max y coordinates given by the map
+ * @param x_max the max x coordinates given by the map
+ * @return t_position a position for the node
+ */
 t_position getRandomStartingPoint(int y_max, int x_max);
 
 #endif //UNTITLED1_LOC_H

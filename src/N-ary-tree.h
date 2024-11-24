@@ -36,10 +36,29 @@ void traversePreOrder(p_node node,int *count_,t_map map);
  */
 void getListOfMovesFromFather(p_node node);
 
+
+/**
+ * @brief iterates through the tree to find the node with the minimal value
+ * @param node the node to check the cost
+ * @param min_val the node that holds the min cost
+ * @return p_node the node min_val
+ */
 p_node gettingSmallestValue(p_node node,p_node min_val);
 
+
+/**
+ * @brief used to execute F_20 and F_30 in F_10 sequences to check for crevasses on the way
+ * @param node the node that used the move
+ * @param map the map used
+ * @return void
+ */
 void performeMove(p_node node,t_map map);
 
+/**
+ * @brief free the memory allocated to the tree using recursion
+ * @param node the original node
+ * @return void
+ */
 void free_tree(p_node node);
 
 #endif //UNTITLED_N-ARY-TREE_H

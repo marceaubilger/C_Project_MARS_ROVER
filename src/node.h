@@ -18,7 +18,19 @@ typedef struct s_node
 
 }t_node, *p_node;
 
+/**
+ * @brief function to create the nodes
+ * @param father the addresse of the father of the node that will be created
+ * @param pos the position of the node in the array of children of its father
+ * @return node the created node
+ */
 p_node createNode(t_node *father,int pos);
 
+
+/**
+ * @brief free the memory allocated to a node
+ * @param node the node to free
+ * @return void
+ */
 void free_node(p_node node);
 #endif //UNTITLED_NODE_H

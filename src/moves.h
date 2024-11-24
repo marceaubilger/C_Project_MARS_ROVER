@@ -50,6 +50,12 @@ t_localisation move(t_localisation,t_move);
  */
 void updateLocalisation(t_localisation *, t_move);
 
+
+/**
+ * @brief calculates the random original moves used in the sequence
+ * @param N integer corresponding to the amount of moves needed
+ * @return t_move array of moves  
+ */
 t_move *getRandomMoves(int N);
 
 #endif //UNTITLED1_MOVES_H
