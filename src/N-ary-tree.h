@@ -40,4 +40,6 @@ p_node gettingSmallestValue(p_node node,p_node min_val);
 
 void performeMove(p_node node,t_map map);
 
+void free_tree(p_node node);
+
 #endif //UNTITLED_N-ARY-TREE_H

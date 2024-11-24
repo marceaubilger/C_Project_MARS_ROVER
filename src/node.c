@@ -16,3 +16,29 @@ p_node createNode(t_node *father,int pos)
     
     return nouv;
 }
+
+
+void free_node(p_node node) {
+    if (node == NULL) {
+        return; // Base case: nothing to free
+    }
+
+    // Recursively free all the children
+    if (node->sons != NULL) {
+        for (int i = 0; i < 9 - (node->height); i++) {
+            if (node->sons[i] != NULL) {
+                free_node(node->sons[i]);
+            }
+        }
+        free(node->sons); // Free the array of child pointers
+    }
+
+    // Free the array for moves
+    if (node->mouv_for_sons != NULL) {
+        free(node->mouv_for_sons);
+    }
+
+    // Free the node itself
+    free(node);
+    
+}

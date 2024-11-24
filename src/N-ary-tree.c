@@ -104,4 +104,11 @@ void performeMove(p_node node,t_map map){
     moveee = (t_move)(node->move_to_get_here);
     node->l=move(node->father->l,moveee);
     valueOnMapAtCoo(map,node);
+
+}
+
+void free_tree(p_node root) {
+    if (root != NULL) {
+        free_node(root); 
+    }
 }
