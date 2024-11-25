@@ -83,22 +83,27 @@ p_node gettingSmallestValue(p_node node, p_node min_val) {
 
 void performeMove(p_node node,t_map map){
     t_move moveee;
-    if(node->move_to_get_here==1){
-        moveee=(t_move)(0);
-        node->l=move(node->father->l,moveee);
-        if(node->cost>=10000){return;}
-        node->l=move(node->l,moveee);
+    moveee=(t_move)(node->move_to_get_here);
+
+    if(moveee==F_20){
+        node->l=move(node->father->l,F_10);
+        valueOnMapAtCoo(map,node);
+        if(node->cost>=1000|| node->cost==0){return;}
+        node->l=move(node->l,F_10);
+        valueOnMapAtCoo(map,node);
     }
 
-    if(node->move_to_get_here==2){
-        moveee=(t_move)(0);
-        node->l=move(node->father->l,moveee);
-        if(node->cost>=10000){return;}
-        node->l=move(node->l,moveee);
-        if(node->cost>=10000){return;}
-        node->l=move(node->father->l,moveee);
-        if(node->cost>=10000){return;}
-        node->l=move(node->l,moveee);
+    if(moveee==F_30){
+        node->l=move(node->father->l,F_10);
+        valueOnMapAtCoo(map,node);
+        if(node->cost>=1000 || node->cost==0){return;}
+        node->l=move(node->l,F_10);
+        valueOnMapAtCoo(map,node);
+        if(node->cost>=1000|| node->cost==0){return;}
+        node->l=move(node->father->l,F_10);
+        valueOnMapAtCoo(map,node);
+        //if(node->cost>=10000){printf("on node 3\n");return;}
+        //node->l=move(node->l,moveee);
     }
 
     moveee = (t_move)(node->move_to_get_here);
